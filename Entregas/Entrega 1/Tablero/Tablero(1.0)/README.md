@@ -23,6 +23,21 @@ La columna "Done" representa las tareas que hemos completado con éxito. Aquí v
 - Para asignar una tarea, etiqueta a un miembro del equipo.
 - Las tareas deben moverse de "To Do" a "In Progress" una vez que alguien comience a trabajar en ellas.
 
+## Especificacion de tareas
+
+- Definir template de issues: Definir un template común para que todo el equipo trabaje sobre el mismo formato y evitar confusiones.
+
+- Buscar issues en Front: Buscar todo error o falla de funcionamiento en el frontend del proyecto.
+
+- Instalación del proyecto en la maquina de Juan: Descargar el proyecto, levantar la Base de datos y lanzar el proyecto
+
+- Instalación del proyecto en la maquina de Martina: Descargar el proyecto, levantar la Base de datos y lanzar el proyecto.
+
+- Instalación del proyecto en la maquina de Facundo: Descargar el proyecto, levantar la Base de datos y lanzar el proyecto
+
+- Buscar issues en el Back: Buscar errores o fallas en la logia del backend del proyecto.
+
+- Buscar mejoras de diseño: Identificar falta de patrones o el uso de patrones mal utilizados.
 ## Conclusiones
 
 Nuestro uso del tablero DevOps y estas tres columnas específicas nos ayuda a mantener un seguimiento efectivo de nuestras actividades y garantiza que nuestro proyecto se desarrolle de manera organizada y eficiente.
@@ -32,7 +47,7 @@ Nuestro uso del tablero DevOps y estas tres columnas específicas nos ayuda a ma
 
 ![Tablero](Entregas/Entrega1/Tablero/Tablero(1.0)/tablero1.png)
 
-![Tablero](Entregas/Entrega1/Tablero/Tablero(1.0)/tablero1.1.png)
+![Tablero1](Entregas/Entrega1/Tablero/Tablero(1.0)/tablero1.1.png)
 
 
 
