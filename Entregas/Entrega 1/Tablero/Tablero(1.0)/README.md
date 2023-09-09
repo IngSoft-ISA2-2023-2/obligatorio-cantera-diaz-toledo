@@ -30,9 +30,10 @@ Nuestro uso del tablero DevOps y estas tres columnas específicas nos ayuda a ma
 
 ## Tablero primera version.
 
-![Tablero v1]("C:\Users\Usuario\Desktop\ISA2\obligatorio-cantera-diaz-toledo\Entregas\Entrega 1\Tablero\Tablero(1.0)\tablero1.png")
+![Tablero](Entregas/Entrega%201/Tablero/Tablero(1.0)/tablero1.png)
 
-![Tablero v1 continuacion de tabla done]("C:\Users\Usuario\Desktop\ISA2\obligatorio-cantera-diaz-toledo\Entregas\Entrega 1\Tablero\Tablero(1.0)\tablero1.1.png")
+![Tablero](Entregas/Entrega%201/Tablero/Tablero(1.0)/tablero1.1.png)
+
 
 
 
