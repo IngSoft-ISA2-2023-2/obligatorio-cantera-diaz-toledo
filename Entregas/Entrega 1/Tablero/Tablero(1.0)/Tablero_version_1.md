@@ -45,11 +45,7 @@ Nuestro uso del tablero DevOps y estas tres columnas específicas nos ayuda a ma
 
 ## Tablero primera version.
 
-![Tablero](Entregas/Entrega1/Tablero/Tablero(1.0)/tablero1.png)
-
-![Tablero1](Entregas/Entrega1/Tablero/Tablero(1.0)/tablero1.1.png)
-
-
+![Tablero](https://i.imgur.com/rsucmDg.png)
 
 
 
