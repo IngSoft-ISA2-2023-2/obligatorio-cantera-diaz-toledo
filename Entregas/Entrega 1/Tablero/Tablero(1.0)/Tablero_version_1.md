@@ -47,5 +47,6 @@ Nuestro uso del tablero DevOps y estas tres columnas específicas nos ayuda a ma
 
 ![Tablero](https://i.imgur.com/rsucmDg.png)
 
+![Tablero](https://i.imgur.com/uO9fd9d.png)
 
 
