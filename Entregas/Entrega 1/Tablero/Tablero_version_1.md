@@ -6,6 +6,8 @@ En este proyecto, hemos decidido utilizar un tablero DevOps para gestionar nuest
 - Un tablero DevOps nos permite colaborar de manera más eficiente y mantener un registro claro de nuestras actividades.
 - La visibilidad y el seguimiento de problemas y errores son esenciales para garantizar la calidad del software.
 
+Elegimos un tablero ágil, ya que al colocar únicamente tareas no necesitamos más información que saber si se está ejecutando la tarea, si todavía no, o si ya se terminó.
+
 ## Columnas del Tablero
 
 ### To Do
@@ -19,34 +21,17 @@ La columna "Done" representa las tareas que hemos completado con éxito. Aquí v
 
 ## Ejemplos y Directrices
 
-- Ejemplos de tareas en "To Do": Verificar patron utilizado para acceder a la base de datos, solucionar el error de validación del formulario.
 - Para asignar una tarea, etiqueta a un miembro del equipo.
 - Las tareas deben moverse de "To Do" a "In Progress" una vez que alguien comience a trabajar en ellas.
 
-## Especificacion de tareas
-
-- Definir template de issues: Definir un template común para que todo el equipo trabaje sobre el mismo formato y evitar confusiones.
-
-- Buscar issues en Front: Buscar todo error o falla de funcionamiento en el frontend del proyecto.
-
-- Instalación del proyecto en la maquina de Juan: Descargar el proyecto, levantar la Base de datos y lanzar el proyecto
-
-- Instalación del proyecto en la maquina de Martina: Descargar el proyecto, levantar la Base de datos y lanzar el proyecto.
-
-- Instalación del proyecto en la maquina de Facundo: Descargar el proyecto, levantar la Base de datos y lanzar el proyecto
-
-- Buscar issues en el Back: Buscar errores o fallas en la logia del backend del proyecto.
-
-- Buscar mejoras de diseño: Identificar falta de patrones o el uso de patrones mal utilizados.
 ## Conclusiones
 
-Nuestro uso del tablero DevOps y estas tres columnas específicas nos ayuda a mantener un seguimiento efectivo de nuestras actividades y garantiza que nuestro proyecto se desarrolle de manera organizada y eficiente.
+Nuestro uso del tablero DevOps y estas tres columnas específicas, nos ayuda a mantener un seguimiento efectivo de nuestras actividades y garantiza que nuestro proyecto, en esta primera etapa, se desarrolle de manera organizada y eficiente.
 
 
 ## Tablero primera version.
 
 ![Tablero](https://i.imgur.com/rsucmDg.png)
 
-![Tablero](https://i.imgur.com/uO9fd9d.png)
 
 
