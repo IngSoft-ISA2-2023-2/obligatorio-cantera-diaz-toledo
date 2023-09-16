@@ -8,34 +8,34 @@ También nos permite clasificar las tareas según su tipo (por ejemplo, si es un
 ## Estructrua de nuestro template de tareas.
 
 
-**Título:** [Descripción breve y descriptiva de la tarea]
+- **Título:** [Descripción breve y descriptiva de la tarea]
 
-**Descripción:**
+- **Descripción:**
 [Proporciona una descripción más detallada de la tarea. Incluye todos los detalles necesarios para que cualquier persona que trabaje en esta tarea pueda entenderla por completo.]
 
-**Responsable:**
+- **Responsable:**
 [Indica quién será el responsable de completar esta tarea.]
 
-**Fecha de inicio:**
+- **Fecha de inicio:**
 [Fecha en la que comenzará la tarea.]
 
-**Fecha de vencimiento:**
+- **Fecha de vencimiento:**
 [Fecha límite para completar la tarea.]
 
-**Esfuerzo estimado:**
+- **Esfuerzo estimado:**
 [Tiempo estimado para completar la tarea en horas o días.]
 
-**Estado:**
+- **Estado:**
 [Indica el estado actual de la tarea, como "Pendiente", "En progreso", "Completada", etc.]
 
-**Notas:**
+- **Notas:**
 [Aquí puedes agregar cualquier nota adicional relevante para la tarea.]
 
-**Label:**
+- **Label:**
 [Tipo de tarea, por ejemplo, "Tarea", "Bug", "Mejora", etc.]
 
-**Asignado a:**
+- **Asignado a:**
 [Aquí puedes indicar si la tarea está asignada a alguien en particular.]
 
-**Enlaces relacionados:**
+- **Enlaces relacionados:**
 [Cualquier enlace o referencia relacionada con la tarea, como enlaces a documentos, tareas relacionadas, etc.]
