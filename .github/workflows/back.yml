@@ -51,21 +51,21 @@ jobs:
         dotnet-version: ${{ env.DOTNET_VERSION }}
 
     - name: Install dependencies
-      working-directory: ./MaterialObligatorio/Implementacion/Implementacion/Codigo/Backend
+      working-directory: ./MaterialObligatorio/Implementacion/Codigo/Backend
       run: dotnet restore
       
     - name: Build
-      working-directory: ./MaterialObligatorio/Implementacion/Implementacion/Codigo/Backend/PharmaGo.WebApi
+      working-directory: ./MaterialObligatorio/Implementacion/Codigo/Backend/PharmaGo.WebApi
       run: dotnet build --configuration Release --no-restore
     
     - name: Test API
-      working-directory: ./MaterialObligatorio/Implementacion/Implementacion/Codigo/Backend/PharmaGo.Test/WebApi.Test
+      working-directory: ./MaterialObligatorio/Implementacion/Codigo/Backend/PharmaGo.Test/WebApi.Test
       run: dotnet test --no-build --verbosity normal
     
     - name: Test Business Logic
-      working-directory: ./MaterialObligatorio/Implementacion/Implementacion/Codigo/Backend/PharmaGo.Test/BusinessLogic.Test
+      working-directory: ./MaterialObligatorio/Implementacion/Codigo/Backend/PharmaGo.Test/BusinessLogic.Test
       run: dotnet test --no-build --verbosity normal
 
     - name: Test Data Access
-      working-directory: ./MaterialObligatorio/Implementacion/Implementacion/Codigo/Backend/PharmaGo.Test/DataAccess.Test
+      working-directory: ./MaterialObligatorio/Implementacion/Codigo/Backend/PharmaGo.Test/DataAccess.Test
       run: dotnet test --no-build --verbosity normal
