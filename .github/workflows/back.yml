@@ -59,13 +59,13 @@ jobs:
       run: dotnet build --configuration Release --no-restore
     
     - name: Test API
-      working-directory: ./MaterialObligatorio/Implementacion/Codigo/Backend/PharmaGo.Test/WebApi.Test
+      working-directory: ./MaterialObligatorio/Implementacion/Codigo/Backend/PharnaGo.Test/WebApi.Test
       run: dotnet test --no-build --verbosity normal
     
     - name: Test Business Logic
-      working-directory: ./MaterialObligatorio/Implementacion/Codigo/Backend/PharmaGo.Test/BusinessLogic.Test
+      working-directory: ./MaterialObligatorio/Implementacion/Codigo/Backend/PharnaGo.Test/BusinessLogic.Test
       run: dotnet test --no-build --verbosity normal
 
     - name: Test Data Access
-      working-directory: ./MaterialObligatorio/Implementacion/Codigo/Backend/PharmaGo.Test/DataAccess.Test
+      working-directory: ./MaterialObligatorio/Implementacion/Codigo/Backend/PharnaGo.Test/DataAccess.Test
       run: dotnet test --no-build --verbosity normal
