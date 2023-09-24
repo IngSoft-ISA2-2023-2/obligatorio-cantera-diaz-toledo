@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { cilCart, cilPlus, cilCompass } from '@coreui/icons';
+import { cilCart, cilPlus, cilCompass, cilUser } from '@coreui/icons';
 import { IconSetService } from '@coreui/icons-angular';
 import { Drug } from '../../../interfaces/drug';
 import { DrugService } from '../../../services/drug.service';
@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
     private drugService: DrugService,
     private commonService: CommonService,
     private storageManager: StorageManager) {
-    iconSet.icons = { cilCart, cilPlus, cilCompass };
+    iconSet.icons = { cilCart, cilPlus, cilCompass, cilUser };
 
     this.commonService.onSearchDataUpdate.subscribe((data: any) => {
       this.drugs = data;
