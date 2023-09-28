@@ -289,7 +289,7 @@ namespace PharmaGo.Test.BusinessLogic.Test
             var stockRequest = new StockRequest()
             {
                 Id = 1,
-                Status = Domain.Enums.StockRequestStatus.Rejected,
+                Status = Domain.Enums.StockRequestStatus.Pending,
                 Employee = new User() { Id = 1, UserName = "jcastro" },
                 Details = new List<StockRequestDetail>()
                 {
@@ -306,10 +306,8 @@ namespace PharmaGo.Test.BusinessLogic.Test
             _drugMock.Setup(d => d.Save());
             _stockRequestMock.Setup(s => s.Save());
 
-            //Act
             var result = _stockRequestManager.ApproveStockRequest(stockRequest.Id);
 
-            //Assert
             Assert.IsNotNull(result);
         }
 
