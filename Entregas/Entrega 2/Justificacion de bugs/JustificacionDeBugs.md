@@ -14,6 +14,8 @@ Link al reporte del issue: https://github.com/IngSoft-ISA2-2023-2/obligatorio-ca
 
 Este bug fue elegido para ser reparado con TDD. Fue elegido, ya que es el que tiene mayor severidad de los bugs de backend. Es muy importante reparar este bug, porque con esta falla de funcionalidad no podemos tener un sistema que maneje bien los stock de los medicamentos disponibles.
 
+Se encontró que no era un bug, sino mas bien un error a la hora de definir las issues, ya que cada droga cuenta con dos atributos stock y Quantity, estos nombres sin una buena documentación pueden llevar a confusiones, como nos ocurrió a nosotros. De igual manera, se agregó una prueba para verificar que el stock de la droga se actualice correctamente.
+
 3. Validación incorrecta al actualizar invitación 
 
 Link al reporte del issue: https://github.com/IngSoft-ISA2-2023-2/obligatorio-cantera-diaz-toledo/issues/23
