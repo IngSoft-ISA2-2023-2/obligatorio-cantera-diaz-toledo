@@ -10,12 +10,10 @@ Tarea | Integrante | Esfuerzo estimado |  Esfuerzo real |
 | Stand/up semanal | Juan | 0.5 horas/persona | 0.5 horas/persona |
 | Stand/up semanal | Martina | 0.5 horas/persona | 0.5 horas/persona |
 | Stand/up semanal | Facundo | 0.5 horas/persona | 0.5 horas/persona |
-
 | Guia de nueva version del tablero | Facundo | 1 horas/persona | 0.5 horas/persona |
 | Navegación entre usuario anónimo y demás roles | Facundo | 1 horas/persona | 1 horas/persona |
 | Validación incorrecta al actualizar invitacion | Martina | 1 horas/persona | 2 horas/persona |
 | Error en incremento de stock al aceptar solicitud de stock | Martina | 2 horas/persona | 2 horas/persona |
-
 | Registro de esfuerzo | Juan | 1 hora/persona | 1 horas/persona | 
 | Retrospectiva | Facundo | 1 hora/persona | 1 horas/persona |
 | Retrospectiva | Juan | 1 hora/persona | 1 horas/persona |
