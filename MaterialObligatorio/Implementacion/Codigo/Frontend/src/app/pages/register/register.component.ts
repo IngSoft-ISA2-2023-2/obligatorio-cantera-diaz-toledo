@@ -20,7 +20,8 @@ export class RegisterComponent implements OnInit {
     private commonService: CommonService,
     private router: Router,
     private userService: UserService
-  ) {
+  )
+   {
     iconSet.icons = { cilUser, cilLockLocked, cilAddressBook, cilPen };
 
     this.form = new FormGroup({
