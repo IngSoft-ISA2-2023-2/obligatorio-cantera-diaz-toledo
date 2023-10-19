@@ -1,10 +1,11 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from "rxjs";
 import { catchError, tap } from "rxjs/operators";
 import { environment } from "../../environments/environment";
 import { CommonService } from "./CommonService";
-import { Product } from "../interfaces/product";
+import { Product, ProductRequest } from "../interfaces/product";
+import { StorageManager } from '../utils/storage-manager';
 
 @Injectable({ providedIn: "root" })
 export class ProductService {
@@ -13,11 +14,21 @@ export class ProductService {
 
     constructor(
         private http: HttpClient,
-        private commonService: CommonService 
+        private commonService: CommonService ,
+        private storageManager: StorageManager
     ) { }
 
+    getHttpHeaders(): HttpHeaders {
+        let login = JSON.parse(this.storageManager.getLogin());
+        let token = login ? login.token : "";
+        
+        return new HttpHeaders()
+          .set('Content-Type', 'application/json')
+          .set('Authorization', token);
+      }
+
     /** POST Products from the server */
-    createProduct(product: Product): Observable<Product> {
+    createProduct(product: ProductRequest): Observable<Product> {
         return this.http.post<Product>(this.url, product).pipe(
             tap(),
             catchError(this.handleError<Product>("Create Product"))
@@ -25,6 +36,23 @@ export class ProductService {
 
     }
 
+    deleteProduct(id: number): Observable<any> {
+        const url = `${this.url}/${id}`;
+        return this.http.delete<any>(url, {headers: this.getHttpHeaders() })
+        .pipe(
+          tap(),
+          catchError(this.handleError<any>('Delete Product'))
+        );
+      }
+
+      getDrugsByUser(): Observable<Product[]> {
+        const url = `${this.url}/user`;
+        return this.http.get<Product[]>(url, {headers: this.getHttpHeaders() })
+          .pipe(
+            tap(),
+            catchError(this.handleError<Product[]>('Get Product By User', []))
+          );
+      }
     /**
      * Handle Http operation that failed.
      * Let the app continue.

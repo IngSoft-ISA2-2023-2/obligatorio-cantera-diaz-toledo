@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
-import { Product } from 'src/app/interfaces/product';
+import { ProductRequest } from 'src/app/interfaces/product';
+import { ProductService } from 'src/app/services/product.service';
 @Component({
   selector: 'app-create-product',
   templateUrl: './create-product.component.html',
@@ -23,7 +24,9 @@ export class createProduct implements OnInit {
 
     //mostrar en console log los datos del formulario
 
+
     constructor(
+      private productService: ProductService,
     )
      {
       this.form = new FormGroup({
@@ -46,8 +49,9 @@ export class createProduct implements OnInit {
       let precio = this.form.get('precio')?.value;
       let descripcion = this.form.get('descripcion')?.value;
       
-      let product = new Product(nombre, precio, descripcion);
-      console.log(product);
+      let product = new ProductRequest(nombre, precio, descripcion, "");
+      this.productService.createProduct(product).subscribe((p: any) => {
+      });
     }
 
   ngOnInit(): void {}
