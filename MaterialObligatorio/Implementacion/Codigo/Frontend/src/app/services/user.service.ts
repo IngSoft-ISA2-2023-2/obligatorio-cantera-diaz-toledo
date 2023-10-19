@@ -9,7 +9,7 @@ import { UserRequest, UserResponse } from '../interfaces/user';
 @Injectable({ providedIn: 'root' })
 export class UserService {
 
-  private url = environment.apiUrl + '/api/users';
+  private url = environment.apiUrl + '/api/users'; // environment.api.Url es la url de la api
 
   constructor(
     private http: HttpClient,
