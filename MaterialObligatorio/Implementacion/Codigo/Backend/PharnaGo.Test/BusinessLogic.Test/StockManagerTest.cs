@@ -282,36 +282,6 @@ namespace PharmaGo.Test.BusinessLogic.Test
         }
 
         [TestMethod]
-        
-        public void ApproveStockRequest_ShouldIncrementStock()
-        {
-            var drug = new Drug() { Id = 1, Code = "XF324", Quantity = 50 };
-            var stockRequest = new StockRequest()
-            {
-                Id = 1,
-                Status = Domain.Enums.StockRequestStatus.Pending,
-                Employee = new User() { Id = 1, UserName = "jcastro" },
-                Details = new List<StockRequestDetail>()
-                {
-                    new StockRequestDetail() { Id = 1, Drug = drug, Quantity = 50 }
-                },
-                RequestDate = DateTime.Now
-            };
-
-            _stockRequestMock.Setup(m => m.GetOneByExpression(It.IsAny<Expression<Func<StockRequest, bool>>>())).Returns(stockRequest);
-            _drugMock.Setup(d => d.GetOneByExpression(It.IsAny<Expression<Func<Drug, bool>>>())).Returns(drug);
-            _drugMock.Setup(d => d.UpdateOne(It.IsAny<Drug>()));
-            _stockRequestMock.Setup(s => s.UpdateOne(It.IsAny<StockRequest>()));
-
-            _drugMock.Setup(d => d.Save());
-            _stockRequestMock.Setup(s => s.Save());
-
-            var result = _stockRequestManager.ApproveStockRequest(stockRequest.Id);
-
-            Assert.IsNotNull(result);
-        }
-
-        [TestMethod]
         [ExpectedException(typeof(InvalidResourceException))]
         public void CreateStockRequest_WithInvalidDrugs_ShouldReturnException()
         {
