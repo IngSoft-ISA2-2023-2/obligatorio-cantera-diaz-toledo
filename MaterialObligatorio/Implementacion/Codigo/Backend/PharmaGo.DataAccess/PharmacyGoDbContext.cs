@@ -19,8 +19,6 @@ namespace PharmaGo.DataAccess
         public DbSet<Presentation> Presentations { get; set; }
         public DbSet<Session> Sessions { get; set; }
 
-        public DbSet<Product> Products { get; set; }
-
         public PharmacyGoDbContext(DbContextOptions<PharmacyGoDbContext> options) : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) {
@@ -28,7 +26,6 @@ namespace PharmaGo.DataAccess
             modelBuilder.Entity<Drug>().Property(property => property.Price).HasPrecision(14, 2);
             modelBuilder.Entity<Purchase>().Property(property => property.TotalAmount).HasPrecision(14, 2);
             modelBuilder.Entity<PurchaseDetail>().Property(property => property.Price).HasPrecision(14, 2);
-            modelBuilder.Entity<Product>().Property(property => property.Precio).HasPrecision(14, 2);
 
             modelBuilder.Entity<UnitMeasure>().Property(u => u.Name).HasConversion<string>();
             modelBuilder.Entity<Presentation>().Property(u => u.Name).HasConversion<string>();

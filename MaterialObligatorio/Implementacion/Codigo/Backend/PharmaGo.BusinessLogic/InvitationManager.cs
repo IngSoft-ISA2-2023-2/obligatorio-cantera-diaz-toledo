@@ -128,11 +128,11 @@ namespace PharmaGo.BusinessLogic
                 var role = _roleRepository.GetOneByExpression(expression => expression.Name == invitation.Role.Name);
                 if (role == null) throw new ResourceNotFoundException("Invalid role.");
 
-                if (!invitation.Role.Name.Equals("Administrator"))
+                if (invitationEntity.Role.Name.Equals("Administrator") && !invitation.Role.Name.Equals("Administrator"))
                 {
-                    if (invitation.Pharmacy is null) throw new InvalidResourceException("A Pharmacy is required.");
+                    if (invitation.Pharmacy == null) throw new InvalidResourceException("A Pharmacy is required.");
                 }
-                else
+                if (invitation.Role.Name.Equals("Administrator"))
                 {
                     if (invitation.Pharmacy != null) throw new InvalidResourceException("A Pharmacy is not required.");
                 }
@@ -158,7 +158,7 @@ namespace PharmaGo.BusinessLogic
                 if (pharmacy == null) throw new ResourceNotFoundException("Invalid Pharmacy.");
                 invitationEntity.Pharmacy = pharmacy;
             }
-            else
+            else if (invitationEntity.Role.Name.Equals("Administrator"))
             {
                 invitationEntity.Pharmacy = null;
             }

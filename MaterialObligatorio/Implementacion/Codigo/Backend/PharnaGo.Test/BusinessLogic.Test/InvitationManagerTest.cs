@@ -286,22 +286,6 @@ namespace PharmaGo.Test.BusinessLogic.Test
 
         [TestMethod]
         [ExpectedException(typeof(InvalidResourceException))]
-        public void UpdateInvitation_WithNullUserName_ShouldReturnInvalidException()
-        {
-            //Arrange
-            var id = 1;
-            var invitation = new Invitation() { Role = new Role() { Name = "Owner" } };
-
-            _invitationMock.Setup(invitation => invitation
-            .GetOneDetailByExpression(It.IsAny<Expression<Func<Invitation, bool>>>())).Returns(new Invitation());
-            _roleMock.Setup(role => role.GetOneByExpression(It.IsAny<Expression<Func<Role, bool>>>())).Returns(new Role());
-
-            //Act
-            var result = _invitationManager.UpdateInvitation(id, invitation);
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(InvalidResourceException))]
         public void UpdateInvitation_WithExistingUserName_ShouldReturnInvalidException()
         {
             //Arrange
@@ -329,50 +313,6 @@ namespace PharmaGo.Test.BusinessLogic.Test
             var invitation = new Invitation() {
                 Pharmacy = new Pharmacy() { Id = 1, Name = "Pharmacy" },
                 Role = new Role() { Name = "Administrator" }, UserCode = "123456"};
-
-            _invitationMock.Setup(invitation => invitation
-            .GetOneDetailByExpression(It.IsAny<Expression<Func<Invitation, bool>>>())).Returns(new Invitation());
-
-            _roleMock.Setup(role => role.GetOneByExpression(It.IsAny<Expression<Func<Role, bool>>>())).Returns(new Role());
-
-            //Act
-            var result = _invitationManager.UpdateInvitation(id, invitation);
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(InvalidResourceException))]
-        public void UpdateInvitation_WithRoleEmployee_ShouldHavePharmacy()
-        {
-            //Arrange
-            var id = 1;
-            var invitation = new Invitation()
-            {
-                Role = new Role() { Name = "Employee" },
-                UserName = "test",
-                UserCode = "123456"
-            };
-
-            _invitationMock.Setup(invitation => invitation
-            .GetOneDetailByExpression(It.IsAny<Expression<Func<Invitation, bool>>>())).Returns(new Invitation());
-
-            _roleMock.Setup(role => role.GetOneByExpression(It.IsAny<Expression<Func<Role, bool>>>())).Returns(new Role());
-
-            //Act
-            var result = _invitationManager.UpdateInvitation(id, invitation);
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(InvalidResourceException))]
-        public void UpdateInvitation_WithRoleOwner_ShouldHavePharmacy()
-        {
-            //Arrange
-            var id = 1;
-            var invitation = new Invitation()
-            {
-                Role = new Role() { Name = "Owner" },
-                UserName = "test",
-                UserCode = "123456"
-            };
 
             _invitationMock.Setup(invitation => invitation
             .GetOneDetailByExpression(It.IsAny<Expression<Func<Invitation, bool>>>())).Returns(new Invitation());
@@ -517,6 +457,42 @@ namespace PharmaGo.Test.BusinessLogic.Test
 
             //Assert
             Assert.AreNotEqual("123456", invitation.UserCode);
+        }
+
+        [TestMethod]
+        public void UpdateInvitation_WithRole_ShouldUpdateInvitationRole()
+        {
+            //Arrange
+            //Arrange
+            var id = 1;
+            var invitationToUpdate = new Invitation()
+            {
+                Role = new Role() { Name = "Employee" }
+            };
+            var invitation = new Invitation()
+            {
+                Id = 1,
+                Pharmacy = new Pharmacy() { Name = "Pharmacy" },
+                Role = new Role() { Name = "Owner" },
+                UserName = "test",
+                UserCode = "123456",
+                IsActive = true
+            };
+
+            _invitationMock.Setup(invitation => invitation
+            .GetOneDetailByExpression(It.IsAny<Expression<Func<Invitation, bool>>>())).Returns(invitation);
+
+            _roleMock.Setup(role => role.GetOneByExpression(It.IsAny<Expression<Func<Role, 
+                bool>>>())).Returns(new Role() { Name = "Employee" });
+
+            _invitationMock.Setup(invitation => invitation.UpdateOne(It.IsAny<Invitation>()));
+            _invitationMock.Setup(invitation => invitation.Save());
+
+            //Act
+            var result = _invitationManager.UpdateInvitation(id, invitationToUpdate);
+
+            //Assert
+            Assert.AreNotEqual("Owner", result.Role);
         }
 
         [TestMethod]
