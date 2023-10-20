@@ -53,7 +53,7 @@ export class DeleteDrugComponent implements OnInit {
       this.drugService.deleteDrug(this.targetItem.id).subscribe((p: any) => {
         if (p) {
           this.visible = false;
-          this.getDrugsByUser();
+          this.getDrugsByUser(); 
           this.commonService.updateToastData(
             `Success deleting drug "${this.targetItem.code} - ${this.targetItem.name}"`,
             'success',

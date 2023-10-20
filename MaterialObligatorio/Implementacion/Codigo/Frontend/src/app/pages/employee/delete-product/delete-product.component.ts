@@ -23,11 +23,11 @@ export class DeleteProductComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getDrugsByUser();
+    this.getProductsByUser();
   }
 
-  getDrugsByUser() {
-    this.productService.getDrugsByUser().subscribe((d: any) => (this.products = d));
+  getProductsByUser() {
+    this.productService.getProductByUser().subscribe((d: any) => (this.products = d));
   }
 
   deleteDrug(index: number): void {
@@ -53,7 +53,7 @@ export class DeleteProductComponent implements OnInit {
       this.productService.deleteProduct(this.targetItem.id).subscribe((p: any) => {
         if (p) {
           this.visible = false;
-          this.getDrugsByUser();
+          this.getProductsByUser();
           this.commonService.updateToastData(
             `Success deleting drug "${this.targetItem.code} - ${this.targetItem.name}"`,
             'success',

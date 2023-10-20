@@ -4,14 +4,14 @@ Quiero dar de alta un producto
 Para tener un nuevo producto y poder venderlo en la plataforma
 
 @creacionValida
-Scenario: Alta de un producto valido
+Scenario: Alta de un producto valido generico
 	Given un nombre de producto alfanumérico con menos de 30 caracteres
 	And una descripción alfanumérico con menos de 70 caracteres
 	And un precio decimal
 	When presione el botón de alta producto
 	Then Veo el mensaje de éxito con el código "201"
 
-Scenario: Alta de un producto con nombre incorrecto
+Scenario: Alta de un producto valido
 	Given que el nombre del producto es "Pasta de dientes"
 	And la descripción es "Refresca tu aliento"
 	And el precio es 200
@@ -19,7 +19,7 @@ Scenario: Alta de un producto con nombre incorrecto
 	Then el producto se agrega a la farmacia con un código autogenerado numérico de 5 dígitos, único dentro de cada farmacia
 	And queda en la lista de productos a vender en la farmacia
 
-Scenario: Alta de un producto con descripcion incorrecta
+Scenario: Alta de un producto con nombre incorrecto
 	Given que el nombre del producto es "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 	And la descripción es "Refresca tu aliento"
 	And el precio es 200

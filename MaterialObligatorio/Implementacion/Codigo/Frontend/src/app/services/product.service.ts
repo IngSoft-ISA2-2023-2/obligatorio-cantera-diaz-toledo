@@ -10,7 +10,7 @@ import { StorageManager } from '../utils/storage-manager';
 @Injectable({ providedIn: "root" })
 export class ProductService {
 
-    private url = environment.apiUrl + "/api/products"; // environment.api.Url es la url de la api
+    private url = environment.apiUrl + "/api/product"; // environment.api.Url es la url de la api
 
     constructor(
         private http: HttpClient,
@@ -29,7 +29,7 @@ export class ProductService {
 
     /** POST Products from the server */
     createProduct(product: ProductRequest): Observable<Product> {
-        return this.http.post<Product>(this.url, product).pipe(
+        return this.http.post<Product>(this.url, product, {headers: this.getHttpHeaders()}).pipe(
             tap(),
             catchError(this.handleError<Product>("Create Product"))
         );
@@ -45,7 +45,7 @@ export class ProductService {
         );
       }
 
-      getDrugsByUser(): Observable<Product[]> {
+      getProductByUser(): Observable<Product[]> {
         const url = `${this.url}/user`;
         return this.http.get<Product[]>(url, {headers: this.getHttpHeaders() })
           .pipe(
