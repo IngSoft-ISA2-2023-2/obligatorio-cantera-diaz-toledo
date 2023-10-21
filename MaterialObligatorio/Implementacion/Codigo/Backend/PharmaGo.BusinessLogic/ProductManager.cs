@@ -70,7 +70,15 @@ namespace PharmaGo.BusinessLogic
 
             if (string.IsNullOrEmpty(product.Nombre))
             {
-                throw new InvalidResourceException("Invalid Name");
+                throw new InvalidResourceException("Empty Name");
+            }
+            if (string.IsNullOrEmpty(product.Descripcion))
+            {
+                throw new InvalidResourceException("Empty Description");
+            }
+            if (product.Precio == null)
+            {
+                throw new InvalidResourceException("Empty Price");
             }
             if (product.Descripcion.Length > 70)
             {

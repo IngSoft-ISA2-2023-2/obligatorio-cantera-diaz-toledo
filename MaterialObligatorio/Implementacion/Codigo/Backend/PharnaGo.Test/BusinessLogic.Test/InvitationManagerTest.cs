@@ -315,7 +315,7 @@ namespace PharmaGo.Test.BusinessLogic.Test
                 Role = new Role() { Name = "Administrator" }, UserCode = "123456"};
 
             _invitationMock.Setup(invitation => invitation
-            .GetOneDetailByExpression(It.IsAny<Expression<Func<Invitation, bool>>>())).Returns(new Invitation());
+            .GetOneDetailByExpression(It.IsAny<Expression<Func<Invitation, bool>>>())).Returns(invitation);
 
             _roleMock.Setup(role => role.GetOneByExpression(It.IsAny<Expression<Func<Role, bool>>>())).Returns(new Role());
 
@@ -338,7 +338,7 @@ namespace PharmaGo.Test.BusinessLogic.Test
             };
 
             _invitationMock.Setup(invitation => invitation
-            .GetOneDetailByExpression(It.IsAny<Expression<Func<Invitation, bool>>>())).Returns(new Invitation());
+            .GetOneDetailByExpression(It.IsAny<Expression<Func<Invitation, bool>>>())).Returns(invitation);
 
             _roleMock.Setup(role => role.GetOneByExpression(It.IsAny<Expression<Func<Role, bool>>>())).Returns(new Role());
 
