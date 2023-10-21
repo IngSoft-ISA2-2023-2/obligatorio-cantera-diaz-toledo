@@ -29,9 +29,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExportationModel", "Exporta
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JSONExporter", "JSONExporter\JSONExporter.csproj", "{FADD2A7B-537F-4142-9028-10EF0967DA46}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PharmaGo.Specs", "PharmaGo.Specs\PharmaGo.Specs.csproj", "{F938193D-C478-400D-A087-A8F63D2B91D8}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PharmaGo.Sepc", "PharmaGo.Sepc\PharmaGo.Sepc.csproj", "{DAE05B3C-B28C-4C55-8ABA-2F59797140D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PharmaGo.Sepc", "PharmaGo.Sepc\PharmaGo.Sepc.csproj", "{DAE05B3C-B28C-4C55-8ABA-2F59797140D0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -83,10 +81,6 @@ Global
 		{FADD2A7B-537F-4142-9028-10EF0967DA46}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FADD2A7B-537F-4142-9028-10EF0967DA46}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FADD2A7B-537F-4142-9028-10EF0967DA46}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F938193D-C478-400D-A087-A8F63D2B91D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F938193D-C478-400D-A087-A8F63D2B91D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F938193D-C478-400D-A087-A8F63D2B91D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F938193D-C478-400D-A087-A8F63D2B91D8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DAE05B3C-B28C-4C55-8ABA-2F59797140D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DAE05B3C-B28C-4C55-8ABA-2F59797140D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DAE05B3C-B28C-4C55-8ABA-2F59797140D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
