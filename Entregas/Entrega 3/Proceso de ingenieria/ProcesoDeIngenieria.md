@@ -2,16 +2,15 @@
 
 ## 1. Planificación Inicial
 
-- **Reunión de Inicio del Proyecto:** El equipo se reúne para discutir los objetivos del proyecto, los requisitos iniciales y para definir las historias de usuario relacionadas con el alta, baja y modificación de productos.
+- **Reunión de Inicio del Proyecto:** El equipo se reúne para discutir los objetivos del proyecto, los requisitos iniciales y para definir las historias de usuario relacionadas con el alta, baja y modificación de productos, y la compra de productos.
 
 ## 2. Definición de Historias de Usuario
 
-- **Creación de Historias de Usuario:** El equipo identifica las historias de usuario específicas relacionadas con el alta, baja y modificación de productos. Cada historia debe ser escrita de manera clara y precisa, siguiendo la sintaxis de BDD.
+- **Creación de Historias de Usuario:** El equipo identifica las historias de usuario específicas relacionadas con los requerimientos. Cada historia debe ser escrita de manera clara y precisa, siguiendo la sintaxis de BDD.
 
 **Ejemplo de Historias de Usuario:**
 - `Como un usuario, quiero poder dar de alta un producto para que pueda ser incluido en el catálogo.`
 - `Como un usuario, quiero poder dar de baja un producto para que no esté disponible en el catálogo.`
-- `Como un usuario, quiero poder modificar un producto para actualizar su información.`
 
 ## 3. Definición de Comportamientos (Gherkin)
 
@@ -19,14 +18,14 @@
 
 **Ejemplo de Escenario BDD (Alta de Producto):**
 
-Feature: Alta de Producto
-
-Scenario: El usuario da de alta un producto válido
-  Given el usuario se encuentra en la página de alta de productos
-  When el usuario completa el formulario con información válida
-  And presiona el botón "Guardar"
-  Then el producto se agrega al catálogo
-
+```cucumber
+Scenario: Alta de un producto valido
+	Given el nombre del producto "Pasta de dientes"
+	And la descripcion "Refresca tu aliento"
+	And el precio 200
+	When se presiona el boton alta producto
+	Then se muestra en la respuesta el codigo "200"
+```
 
 ## 4. Desarrollo Backend
 
