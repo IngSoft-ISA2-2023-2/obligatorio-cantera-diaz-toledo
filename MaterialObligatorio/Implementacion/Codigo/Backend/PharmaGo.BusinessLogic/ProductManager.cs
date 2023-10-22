@@ -129,6 +129,24 @@ namespace PharmaGo.BusinessLogic
             Pharmacy pharmacy = user.Pharmacy;
             return _productRepository.GetAllByExpression(d => d.Pharmacy.Id == pharmacy.Id);
         }
+        public Product Update(int id, Product updateProduct)
+        {
+            if (updateProduct == null)
+            {
+                throw new ResourceNotFoundException("The updated product is invalid.");
+            }
+            var productSaved = _productRepository.GetOneByExpression(d => d.Id == id);
+            if (productSaved == null)
+            {
+                throw new ResourceNotFoundException("The product to update does not exist.");
+            }
+            productSaved.Nombre = updateProduct.Nombre;
+            productSaved.Precio = updateProduct.Precio;
+            productSaved.Descripcion = updateProduct.Descripcion;
+            _productRepository.UpdateOne(productSaved);
+            _productRepository.Save();
+            return productSaved;
+        }
 
     }
 }

@@ -23,6 +23,15 @@
               <td>{{ product.precio | currency }}</td>
               <td>{{ product.descripcion }}</td>
               <td>
+                <div class="d-grid">
+                  <button 
+                  (click)="update(product.id)"
+                  class="customButton" 
+                  cButton 
+                  color="primary">
+                    Update Product
+                  </button>
+                </div>
                 <button
                   title="Delete"
                   class="btn btn-outline-danger"

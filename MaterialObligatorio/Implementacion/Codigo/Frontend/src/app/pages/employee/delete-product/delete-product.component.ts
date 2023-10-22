@@ -3,6 +3,7 @@ import { cilCheckAlt, cilX } from '@coreui/icons';
 import { ProductService } from 'src/app/services/product.service';
 import { Product} from '../../../interfaces/product';
 import { CommonService } from '../../../services/CommonService';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-delete-product',
@@ -19,7 +20,8 @@ export class DeleteProductComponent implements OnInit {
 
   constructor(
     private commonService: CommonService,
-    private productService: ProductService
+    private productService: ProductService,
+    private route: Router,
   ) {}
 
   ngOnInit(): void {
@@ -63,4 +65,10 @@ export class DeleteProductComponent implements OnInit {
       });
     }
   }
+
+  update(id: number): void {
+    this.route.navigate(['employee/update-product', 
+    { id: id }])
+}
+
 }
