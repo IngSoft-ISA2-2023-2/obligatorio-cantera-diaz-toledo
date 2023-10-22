@@ -1,0 +1,39 @@
+name: Bdd
+
+on:
+  push:
+  pull_request:
+    branches: [ main, develop ]
+    paths:
+    - '**.cs'
+    - '**.csproj'
+
+env:
+  DOTNET_VERSION: '6.0.401' # The .NET SDK version to use
+
+jobs:
+  test-bdd:
+    name: test-${{matrix.os}}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+
+    steps: 
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: ${{ env.DOTNET_VERSION }}
+
+    - name: Install dependencies
+      working-directory: ./MaterialObligatorio/Implementacion/Codigo/Backend
+      run: dotnet restore
+      
+    - name: Build
+      working-directory: ./MaterialObligatorio/Implementacion/Codigo/Backend
+      run: dotnet build --configuration Debug --no-restore
+
+    - name: BDD Tests
+      working-directory: ./MaterialObligatorio/Implementacion/Codigo/Backend/PharmaGo.Sepc
+      run: dotnet test --no-build --verbosity normal

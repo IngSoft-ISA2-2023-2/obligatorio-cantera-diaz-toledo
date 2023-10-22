@@ -11,18 +11,17 @@ using TechTalk.SpecFlow;
 namespace PharmaGo.Sepc.StepDefinitions
 {
     [Binding]
-    public class ProductoStepDefinitions
+    public class AltaProductoStepDefinitions
     {
         private ProductModelRequest productModel;
         private ProductController _productController;
         private Mock<IProductManager> _productManagerMock;
         private Pharmacy _pharmacy;
         private string token = "c80da9ed-1b41-4768-8e34-b728cae25d2f";
-        private ObjectResult _result;
         private readonly ScenarioContext context;
         private readonly Product _product = new Product();
 
-        public ProductoStepDefinitions(ScenarioContext context)
+        public AltaProductoStepDefinitions(ScenarioContext context)
         {
             this.context = context;
         }
@@ -49,18 +48,18 @@ namespace PharmaGo.Sepc.StepDefinitions
         [Then(@"se muestra en la respuesta el codigo ""([^""]*)""")]
         public void ThenSeMuestraEnLaRespuestaElCodigo(string p0)
         {
-            _result.StatusCode.Should().Equals(p0);
+            context.Get<ObjectResult>("result").StatusCode.Should().Equals(p0);
         }
 
 
         [Then(@"se muestra el mensaje de error ""([^""]*)""")]
         public void ThenSeMuestraElMensajeDeError(string p0)
         {
-            _result.ToString().Should().Equals(p0);
+            context.Get<ObjectResult>("result").ToString().Should().Equals(p0);
         }
 
-        [When(@"se presiona el boton ""([^""]*)""")]
-        public void WhenSePresionaElBoton(string p0)
+        [When(@"se presiona el boton alta producto")]
+        public void WhenSePresionaElBoton()
         {
             productModel = new ProductModelRequest()
             {
@@ -85,7 +84,7 @@ namespace PharmaGo.Sepc.StepDefinitions
 
             _productManagerMock.Setup(x => x.CreatePurchase(It.IsAny<Product>(), token)).Returns(_product);
             var result = _productController.CreateProduct(productModel);
-            _result = result as ObjectResult;
+            context.Set(result as ObjectResult, "result");
         }
     }
 }
