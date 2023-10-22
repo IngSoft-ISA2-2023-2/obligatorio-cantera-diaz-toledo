@@ -11,5 +11,7 @@ namespace PharmaGo.IBusinessLogic
         Product GetById(int id);
 
         IEnumerable<Product> GetAllByUser(string token);
+
+        Product Update(int id, Product product);
     }
 }

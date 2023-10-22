@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup } from '@angular/forms';
 import { ProductRequest } from 'src/app/interfaces/product';
 import { ProductService } from 'src/app/services/product.service';
+
 @Component({
   selector: 'app-create-product',
   templateUrl: './create-product.component.html',
@@ -51,6 +52,7 @@ export class createProduct implements OnInit {
       
       let product = new ProductRequest(nombre, precio, descripcion, "");
       this.productService.createProduct(product).subscribe((p: any) => {
+       
       });
     }
 
