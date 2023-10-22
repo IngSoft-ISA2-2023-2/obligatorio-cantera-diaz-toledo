@@ -35,5 +35,5 @@ jobs:
       run: dotnet build --configuration Debug --no-restore
 
     - name: BDD Tests
-      working-directory: ./MaterialObligatorio/Implementacion/Codigo/Backend/PharmaGo.Spec/
+      working-directory: ./MaterialObligatorio/Implementacion/Codigo/Backend/PharmaGo.Sepc
       run: dotnet test --no-build --verbosity normal
