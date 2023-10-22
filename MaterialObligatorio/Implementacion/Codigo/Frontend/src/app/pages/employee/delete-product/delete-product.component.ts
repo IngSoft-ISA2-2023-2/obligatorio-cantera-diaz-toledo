@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { cilCheckAlt, cilX } from '@coreui/icons';
-import { DrugService } from '../../../services/drug.service';
-import { Drug } from '../../../interfaces/drug';
+import { ProductService } from 'src/app/services/product.service';
+import { Product} from '../../../interfaces/product';
 import { CommonService } from '../../../services/CommonService';
 
 @Component({
-  selector: 'app-delete-drug',
-  templateUrl: './delete-drug.component.html',
-  styleUrls: ['./delete-drug.component.css'],
+  selector: 'app-delete-product',
+  templateUrl: './delete-product.component.html',
+  styleUrls: ['./delete-product.component.css'],
 })
-export class DeleteDrugComponent implements OnInit {
-  drugs: Drug[] = [];
+export class DeleteProductComponent implements OnInit {
+  products: Product[] = [];
   icons = { cilCheckAlt, cilX };
   targetItem: any = undefined;
   visible = false;
@@ -19,26 +19,26 @@ export class DeleteDrugComponent implements OnInit {
 
   constructor(
     private commonService: CommonService,
-    private drugService: DrugService
+    private productService: ProductService
   ) {}
 
   ngOnInit(): void {
-    this.getDrugsByUser();
+    this.getProductsByUser();
   }
 
-  getDrugsByUser() {
-    this.drugService.getDrugsByUser().subscribe((d: any) => (this.drugs = d));
+  getProductsByUser() {
+    this.productService.getProductByUser().subscribe((d: any) => (this.products = d));
   }
 
   deleteDrug(index: number): void {
-    for (let drug of this.drugs) {
-      if (drug.id === index) {
-        this.targetItem = drug;
+    for (let product of this.products) {
+      if (product.id === index) {
+        this.targetItem = product;
         break;
       }
     }
     if (this.targetItem) {
-      this.modalTitle = 'Delete Drug';
+      this.modalTitle = 'Delete Product';
       this.modalMessage = `Deleting '${this.targetItem.code} - ${this.targetItem.name}'. Are you sure ?`;
       this.visible = true;
     }
@@ -50,10 +50,10 @@ export class DeleteDrugComponent implements OnInit {
 
   saveModal(event: any): void {
     if (event) {
-      this.drugService.deleteDrug(this.targetItem.id).subscribe((p: any) => {
+      this.productService.deleteProduct(this.targetItem.id).subscribe((p: any) => {
         if (p) {
           this.visible = false;
-          this.getDrugsByUser(); 
+          this.getProductsByUser();
           this.commonService.updateToastData(
             `Success deleting drug "${this.targetItem.code} - ${this.targetItem.name}"`,
             'success',
