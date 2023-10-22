@@ -31,18 +31,21 @@ namespace PharmaGo.Sepc.StepDefinitions
         public void GivenElNombreDelProducto(string p0)
         {
             _product.Nombre = p0;
+            context.Set(_product, "product");
         }
 
         [Given(@"la descripcion ""([^""]*)""")]
         public void GivenLaDescripcion(string p0)
         {
             _product.Descripcion = p0;
+            context.Set(_product, "product");
         }
 
         [Given(@"el precio (.*)")]
         public void GivenElPrecio(int p0)
         {
             _product.Precio = p0;
+            context.Set(_product, "product");
         }
 
         [Then(@"se muestra en la respuesta el codigo ""([^""]*)""")]
