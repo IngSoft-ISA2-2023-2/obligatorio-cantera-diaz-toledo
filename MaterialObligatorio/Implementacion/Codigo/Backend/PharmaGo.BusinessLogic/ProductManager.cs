@@ -140,6 +140,18 @@ namespace PharmaGo.BusinessLogic
             {
                 throw new ResourceNotFoundException("The product to update does not exist.");
             }
+            if (updateProduct.Descripcion.Length > 70)
+            {
+                throw new InvalidResourceException("Invalid Description");
+            }
+            if (updateProduct.Precio <= 0)
+            {
+                throw new InvalidResourceException("Invalid Price");
+            }
+            if (updateProduct.Nombre.Length > 30)
+            {
+                throw new InvalidResourceException("Invalid Name");
+            }
             productSaved.Nombre = updateProduct.Nombre;
             productSaved.Precio = updateProduct.Precio;
             productSaved.Descripcion = updateProduct.Descripcion;
