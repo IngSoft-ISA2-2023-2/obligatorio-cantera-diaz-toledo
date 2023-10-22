@@ -13,7 +13,7 @@ namespace PharmaGo.Sepc.StepDefinitions
     [Binding]
     public class BajaProductoStepDefinitions
     {
-        private ProductModelRequest productModel;
+
         private ProductController _productController;
         private Mock<IProductManager> _productManagerMock;
         private string token = "c80da9ed-1b41-4768-8e34-b728cae25d2f";
