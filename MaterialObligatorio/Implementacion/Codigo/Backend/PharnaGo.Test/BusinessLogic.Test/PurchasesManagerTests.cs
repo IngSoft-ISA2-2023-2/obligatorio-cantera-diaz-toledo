@@ -69,7 +69,8 @@ namespace PharmaGo.Test.BusinessLogic.Test
                 BuyerEmail = "roberto.perez@gmail.com",
                 PurchaseDate = new DateTime(2022, 09, 19, 14, 34, 44),
                 TotalAmount = new decimal(450),
-                details = purchaseDetail
+                details = purchaseDetail,
+                detailsProduct = new List<PurchaseDetailProduct>()
             };
 
             purchase_2 = new Purchase
@@ -162,6 +163,7 @@ namespace PharmaGo.Test.BusinessLogic.Test
         {
             //Arrange
             purchase.details = null;
+            purchase.detailsProduct = null;
 
             //Act
             var response = _purchasesManager.CreatePurchase(purchase);
