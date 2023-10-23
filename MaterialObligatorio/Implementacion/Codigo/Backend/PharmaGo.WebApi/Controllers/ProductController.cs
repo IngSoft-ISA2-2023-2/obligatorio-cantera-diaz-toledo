@@ -2,6 +2,7 @@
 using NuGet.Common;
 using PharmaGo.BusinessLogic;
 using PharmaGo.Domain.Entities;
+using PharmaGo.Domain.SearchCriterias;
 using PharmaGo.IBusinessLogic;
 using PharmaGo.WebApi.Enums;
 using PharmaGo.WebApi.Filters;
@@ -21,6 +22,16 @@ namespace PharmaGo.WebApi.Controllers
         {
             _productManager = manager;
         }
+
+        [HttpGet]
+        public IActionResult GetAll([FromQuery] ProductSearchCriteria productSearchCriteria)
+        {
+            IEnumerable<Product> products = _productManager.GetAll(productSearchCriteria);
+            IEnumerable<ProductBasicModel> productsToReturn = products.Select(d => new ProductBasicModel(d));
+            return Ok(productsToReturn);
+        }
+
+
         [HttpGet("{id}")]
 
         public IActionResult GetById([FromRoute] int id)

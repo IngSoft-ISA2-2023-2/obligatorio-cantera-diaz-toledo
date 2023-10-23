@@ -62,6 +62,23 @@ export class ProductService {
         );
       }
 
+      getProducts(): Observable<Product[]> {
+        return this.http.get<Product[]>(this.url, {headers: this.getHttpHeaders() })
+          .pipe(
+            tap(),
+            catchError(this.handleError<Product[]>('Get Drugs', []))
+          );
+      }
+
+      getProduct(id: number): Observable<Product> {
+        const url = `${this.url}/${id}`;
+        return this.http.get<Product>(url, {headers: this.getHttpHeaders() })
+        .pipe(
+          tap(),
+          catchError(this.handleError<Product>(`Get Drug id=${id}`))
+        );
+      }
+
       updateProduct(id: number, product: ProductRequest): Observable<Product> {
         const url = `${this.url}/${id}`;
         return this.http.put<Product>(url, product, {headers: this.getHttpHeaders() }).pipe(

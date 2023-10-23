@@ -11,6 +11,7 @@
     <c-row [ngStyle]="{ width: '100%' }">
       <c-col>
         <h3 [ngStyle]="{ 'text-align': 'center' }">Cart</h3>
+        <h3 [ngStyle]="{ 'text-align': 'center' }">Drugs</h3>
         <div *ngIf="cart.length > 0">
           <table cTable hover [responsive]="true">
             <thead>
@@ -55,6 +56,49 @@
             </tfoot>
           </table>
 
+          <h3 [ngStyle]="{ 'text-align': 'center' }">Products</h3>
+          <div *ngIf="cartProduct.length > 0">
+            <table cTable hover [responsive]="true">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Product</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Total</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let product of cartProduct; let indexOfelement = index">
+                  <th scope="row">{{ indexOfelement + 1 }}</th>
+                  <td>{{ product.nombre }}</td>
+                  <td>{{ product.precio | currency }}</td>
+                  <td>{{ product.precio | currency }}</td>
+                  <td>
+                    <button
+                      title="Delete"
+                      class="btn btn-outline-info"
+                      (click)="delete(indexOfelement)"
+                    >
+                      <svg cIcon name="cil-trash"></svg>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td><b>Total</b></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>
+                    <b>{{ total | currency }}</b>
+                  </td>
+                  <td></td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
           <div class="mb-3" [ngStyle]="{ 'text-align': 'end' }">
             <button cButton color="primary" [routerLink]="['/home']">
               Add another item
@@ -84,6 +128,8 @@
             </button>
           </p>
         </div>
+
+
       </c-col>
     </c-row>
   </c-container>

@@ -21,5 +21,9 @@ namespace PharmaGo.DataAccess.Repositories
             _context.Entry(product).State = EntityState.Added;
             _context.Set<Product>().Add(product);
         }
+        public override IEnumerable<Product> GetAllByExpression(Expression<Func<Product, bool>> expression)
+        {
+            return _context.Set<Product>().Include(x => x.Pharmacy).Where(expression);
+        }
     }
 }
