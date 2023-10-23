@@ -28,19 +28,7 @@
                   </p>
   
                   <div [ngStyle]="{ 'text-align': 'end' }">
-                    <c-input-group class="mb-3 customQuantity">
-                      <label cInputGroupText for="quantityInput">
-                        Quantity
-                      </label>
-                      <input
-                        cFormControl
-                        [(ngModel)]="quantity"
-                        id="quantityInput"
-                        value="1"
-                        min="1"
-                        type="number"
-                      />
-                    </c-input-group>
+    
   
                     <button cButton color="primary" (click)="addToCart(product)">
                       Add to cart

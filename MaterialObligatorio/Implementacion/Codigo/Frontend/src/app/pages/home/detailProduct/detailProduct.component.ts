@@ -56,9 +56,9 @@ export class DetailProductComponent implements OnInit {
           break;
         }
       }
-      if (!exist){
+      
         this.cart.push(product);
-      }
+      
       this.storageManager.saveData('cartProduct', JSON.stringify(this.cart));
     }
     this.updateHeader(this.cart.length);

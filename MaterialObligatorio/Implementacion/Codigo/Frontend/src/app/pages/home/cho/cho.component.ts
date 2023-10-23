@@ -4,7 +4,7 @@ import { IconSetService } from '@coreui/icons-angular';
 import { Router } from '@angular/router';
 import { PurchaseService } from '../../../services/purchase.service';
 import { StorageManager } from '../../../utils/storage-manager';
-import { PurchaseRequest, PurchaseRequestDetail } from 'src/app/interfaces/purchase';
+import { PurchaseRequest, PurchaseRequestDetail, PurchaseRequestDetailProduct } from 'src/app/interfaces/purchase';
 import { CommonService } from '../../../services/CommonService';
 import { Drug } from 'src/app/interfaces/drug';
 import { Product } from 'src/app/interfaces/product';
@@ -43,17 +43,19 @@ export class ChoComponent implements OnInit {
     let cart = JSON.parse(this.storageManager.getData('cart'));
     let cartProduct = JSON.parse(this.storageManager.getData('cartProduct'));
     let details : PurchaseRequestDetail[] = [];
+    let detailsProduct : PurchaseRequestDetailProduct[] = [];
     for (const item of cart) {
       let detail = new PurchaseRequestDetail(item.code, item.quantity, item.pharmacy.id);
       details.push(detail);
     }
     for (const item of cartProduct) {
-      let detail = new PurchaseRequestDetail(item.id, 1, item.pharmacy.id);
-      details.push(detail);
+      let detail = new PurchaseRequestDetailProduct(item.id,1, item.pharmacy.id);
+      detailsProduct.push(detail);
     }
 
     let now = new Date().toISOString();
-    let purchaseRequest = new PurchaseRequest(this.email, now, details);
+    let purchaseRequest = new PurchaseRequest(this.email, now, details, detailsProduct);
+    console.log(purchaseRequest);
     this.purchaseService.addPurchase(purchaseRequest)
     .subscribe(purchase => {
       if (purchase){
@@ -62,7 +64,8 @@ export class ChoComponent implements OnInit {
                   "Tracking code: " + purchase.trackingCode, 
                   "success", 
                   "Thank you for your purchase.");
-        this.storageManager.removeData("cart");          
+        this.storageManager.removeData("cart");    
+        this.storageManager.removeData("cartProduct");      
         this.router.navigate(['/home']);
       }
     });
