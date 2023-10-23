@@ -10,5 +10,7 @@ namespace PharmaGo.Domain.Entities
         public string TrackingCode { get; set; }
         public ICollection<PurchaseDetail> details { get; set; }
 
+        public ICollection<PurchaseDetailProduct> detailsProduct { get; set; }
+
     }
 }
