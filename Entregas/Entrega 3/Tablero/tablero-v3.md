@@ -45,5 +45,3 @@ Este tablero de desarrollo está diseñado para facilitar y optimizar el proceso
 Este tablero debe actualizarse regularmente para reflejar el estado actual del proyecto. Las historias de usuario deben moverse a través de las columnas a medida que avanzan en el ciclo de desarrollo BDD. El equipo debe colaborar estrechamente para definir y comprender los comportamientos esperados y garantizar que se cumplan mediante pruebas efectivas.
 
 El tablero también se puede utilizar como una herramienta de comunicación efectiva para todas las partes interesadas, ya que proporciona una visión general del progreso del proyecto.
-
-¡Esperamos que este tablero te ayude a implementar con éxito el BDD en tu proyecto y a mantener un proceso de desarrollo ágil y colaborativo!
