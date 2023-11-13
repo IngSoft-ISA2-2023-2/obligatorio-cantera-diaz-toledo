@@ -1,0 +1,18 @@
+<app-user-header title="Empleado" link="employee"></app-user-header>
+<div class="form-style-5">
+    <form [formGroup]="form">
+        <fieldset>
+          <legend>Create product</legend>
+          <input type="text" formControlName="nombre" placeholder="Nombre Producto*" >
+          <input type="number" formControlName="precio" placeholder="Precio*" >
+          <textarea formControlName="descripcion" placeholder="Descripcion"></textarea>
+        </fieldset>
+        <button 
+        (click)="goAlta()" 
+        cButton 
+        color="primary">
+          Create Account
+        </button>
+      </form>
+      
+</div>
